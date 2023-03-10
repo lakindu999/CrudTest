@@ -8,8 +8,11 @@ import com.springbootacademy.project1.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
-public class StudentServiceIMPL implements StudentService {
+ public class StudentServiceIMPL implements StudentService {
 
     @Autowired
     private StudentRepo studentRepo;
@@ -74,6 +77,50 @@ public class StudentServiceIMPL implements StudentService {
 
 
     }
+
+    //View all Students
+    @Override
+    public List<StudentDTO> getAllStudents() {
+        List<Student>  allStudents = studentRepo.findAll();
+
+        if (allStudents.size()>0){
+            List<StudentDTO> studentDTOList = new ArrayList<>();
+            for (Student student : allStudents){
+                StudentDTO studentDTO = new StudentDTO(
+                        student.getStudentId(),
+                        student.getStudentName(),
+                        student.getStudentClass(),
+                        student.getSubjectStream(),
+                        student.getSubjects(),
+                        student.isActiveStatus()
+                );
+                studentDTOList.add(studentDTO);
+            }
+            return studentDTOList;
+        }
+
+        else {
+            throw new RuntimeException("No Student Found");
+        }
+    }
+
+    //delete Student
+    @Override
+    public String deleteStudent(int studentId) {
+        if (studentRepo.existsById(studentId)){
+            studentRepo.deleteById(studentId);
+            return "Student Deleted";
+        }
+
+        else{
+            throw new RuntimeException("No Student Found");
+        }
+
+
+    }
+
+}
+
 
 }
 

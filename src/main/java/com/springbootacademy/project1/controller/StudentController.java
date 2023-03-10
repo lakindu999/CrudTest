@@ -6,6 +6,8 @@ import com.springbootacademy.project1.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/student")
 
@@ -34,6 +36,20 @@ public class StudentController {
     public StudentDTO getStudentById(@RequestParam(value = "id") int studentId){
         return studentService.getStudentById(studentId);
 
+    }
+
+    //Get all Customers
+    @GetMapping(path = "/get-all-students")
+    public List<StudentDTO> getAllStudents(){
+        List<StudentDTO> allStudents = studentService.getAllStudents();
+        return allStudents;
+    }
+
+    //Delete Student
+    @DeleteMapping(path = "/delete-by-id/{id}")
+    public String deleteStudent(@PathVariable(value = "id") int studentId){
+        String deleted = studentService.deleteStudent(studentId);
+        return "Student Deleted";
     }
 
 
