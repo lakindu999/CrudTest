@@ -52,6 +52,4 @@ public class StudentController {
         return "Student Deleted";
     }
 
-
-
 }
