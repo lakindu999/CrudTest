@@ -1,20 +1,16 @@
-package com.springbootacademy.project1.DTO;
+package com.springbootacademy.project1.DTO.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class BookDTO {
 
+public class BookGetResponseDTO {
     private int bookId;
     private String bookName;
-    private double bookValue;
-    private Date borrowDate;
     private Date returnDate;
-    private boolean activeStatus;
 }
