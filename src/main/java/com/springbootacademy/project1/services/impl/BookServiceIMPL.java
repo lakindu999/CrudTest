@@ -31,7 +31,6 @@ public class BookServiceIMPL implements BookService {
         Books books = modelMapper.map(bookDTO, Books.class);
         bookRepo.save(books);
         return "Saved";
-
     }
 
     //search Book
@@ -47,7 +46,6 @@ public class BookServiceIMPL implements BookService {
         else {
             throw new RuntimeException("No Book Exist");
         }
-
     }
 
     //Delete Book
@@ -60,7 +58,6 @@ public class BookServiceIMPL implements BookService {
         else {
             throw new RuntimeException("No Book Exist");
         }
-
     }
 
     //View all books
@@ -74,7 +71,6 @@ public class BookServiceIMPL implements BookService {
         else {
             throw new RuntimeException("No Books Found");
         }
-
     }
 
 
@@ -90,7 +86,6 @@ public class BookServiceIMPL implements BookService {
             throw new RuntimeException("No Book Exist");
         }
     }
-
 
 }
 
