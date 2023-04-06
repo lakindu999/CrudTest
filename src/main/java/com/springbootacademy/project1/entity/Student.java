@@ -8,6 +8,7 @@ import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Set;
 
 @Table(name = "Student")
 @Entity
@@ -24,7 +25,7 @@ public class Student {
     @Column(name = "Student_Name", length = 100, nullable = false)
     private String studentName;
 
-    @Column(name = "Student_class", length = 5)
+    @Column(name = "Student_class", length = 10)
     private String studentClass;
 
     @Column(name = "Subject_Stream", length = 10)
@@ -36,6 +37,10 @@ public class Student {
 
     @Column(name = "active_status", columnDefinition = "TINYINT default 1")
     private boolean activeStatus;
+
+    @OneToMany(mappedBy = "student")
+    private Set<Checkout> checkouts;
+
 
     public Student() {
 

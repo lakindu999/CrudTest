@@ -5,7 +5,7 @@ import com.springbootacademy.project1.DTO.response.BookGetResponseDTO;
 import com.springbootacademy.project1.entity.Books;
 import com.springbootacademy.project1.repo.BookRepo;
 import com.springbootacademy.project1.services.BookService;
-import com.springbootacademy.project1.util.BookMapper;
+import com.springbootacademy.project1.util.mappers.BookMapper;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;

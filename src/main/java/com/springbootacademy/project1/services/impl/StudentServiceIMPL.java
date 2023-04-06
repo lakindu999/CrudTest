@@ -111,14 +111,10 @@ import java.util.List;
             studentRepo.deleteById(studentId);
             return "Student Deleted";
         }
-
-        else{
+        else {
             throw new RuntimeException("No Student Found");
         }
-
-
     }
-
 }
 
 
